@@ -26,7 +26,7 @@ public class Server
 			ServerSocket ss = new ServerSocket(this.getPort());
 			System.out.println("En attente d'un client");
 			Socket toClient = ss.accept();
-			System.out.println("un client est arrivé");
+			System.out.println("un client est arrive");
 
 			PrintWriter   out   = new PrintWriter(toClient.getOutputStream(),true);
 			BufferedReader in = new BufferedReader(new InputStreamReader(toClient.getInputStream()));
@@ -36,7 +36,7 @@ public class Server
 		}
 		catch(Exception e)
 		{
-			System.out.println("Ya un problème frerot");
+			System.out.println("Ya un probleme frerot");
 		}
 
 
