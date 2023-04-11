@@ -1,48 +1,20 @@
 package src;
 
-
-import java.io.BufferedReader;
-import java.io.PrintWriter;
-import java.io.InputStreamReader;
-import java.net.*;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class Server
 {
-	private int port;
+	public Server(int port) throws IOException {
+		ServerSocket serverSocket = new ServerSocket(port);
 
-	public Server(int port)
-	{
-		this.port = port;
-		run();
-	}
+		System.out.println("Le serveur de chat est en ligne sur le port 9000...");
 
-	//Getteur
-	public int getPort(){return this.port;}
-
-	public void run()
-	{
-		try
-		{
-			ServerSocket ss = new ServerSocket(this.getPort());
-			System.out.println("En attente d'un client");
-			Socket toClient = ss.accept();
-			System.out.println("un client est arrive");
-
-			PrintWriter   out   = new PrintWriter(toClient.getOutputStream(),true);
-			BufferedReader in = new BufferedReader(new InputStreamReader(toClient.getInputStream()));
-
-			out.println("connected");
-
+		while (true) {
+			Socket clientSocket = serverSocket.accept();
+			System.out.println("Nouvelle connexion de " + clientSocket.getInetAddress().getHostAddress());
+			new ClientThread(clientSocket).start();
 		}
-		catch(Exception e)
-		{
-			System.out.println("Ya un probleme frerot");
-		}
-
-
-
-
 	}
-
-
 }
