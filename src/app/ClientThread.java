@@ -28,10 +28,10 @@ public class ClientThread extends Thread{
                 if (inputLine == null) {
                     break;
                 }
-                System.out.println("Message reçu de " + clientSocket.getInetAddress().getHostAddress() + ": " + inputLine);
+                System.out.println("Message recu de " + clientSocket.getInetAddress().getHostAddress() + ": " + inputLine);
             }
 
-            System.out.println("Connexion fermée par " + clientSocket.getInetAddress().getHostAddress());
+            System.out.println("Connexion fermee par " + clientSocket.getInetAddress().getHostAddress());
             clientSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
