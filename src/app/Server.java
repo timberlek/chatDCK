@@ -1,8 +1,10 @@
-package src;
+package src.app;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+
+import src.app.ClientThread;
 
 public class Server
 {
