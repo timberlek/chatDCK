@@ -13,12 +13,12 @@ RUN apt-get install -y net-tools
 
 # installation et configuration de notre application
 RUN git clone https://github.com/timberlek/chatDCK.git -b server
-RUN chmod +x start.sh
 
 ADD . /chatDCK/
 WORKDIR /chatDCK
 
 VOLUME /chatDCK/logs
+RUN chmod +x start.sh
 
 # Lancement par défaut de notre application
 CMD ./start.sh
