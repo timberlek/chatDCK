@@ -12,7 +12,16 @@ public class ClientThread extends Thread{
     private BufferedReader in;
     private PrintWriter out;
 
-    public ClientThread(Socket socket) {
+	private String username;
+	private String password;
+
+    public ClientThread(Socket socket, String username, String password) {
+        this.clientSocket = socket;
+		this.username     = username;
+		this.password     = password;
+    }
+
+	public ClientThread(Socket socket) {
         this.clientSocket = socket;
     }
 
@@ -25,16 +34,34 @@ public class ClientThread extends Thread{
 
             while (true) {
                 String inputLine = in.readLine();
-                if (inputLine == null) {
+                if (inputLine.equals("STOP")) {
                     break;
                 }
-                System.out.println("Message recu de " + clientSocket.getInetAddress().getHostAddress() + ": " + inputLine);
+                System.out.println("Message recu de " + this.getUsername() + " : " + inputLine);
             }
 
-            System.out.println("Connexion fermee par " + clientSocket.getInetAddress().getHostAddress());
+            System.out.println("Connexion fermee par " + this.getUsername());
             clientSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	
 }
