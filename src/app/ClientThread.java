@@ -61,7 +61,7 @@ public class ClientThread extends Thread{
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
+	}a
 
 	
 }
