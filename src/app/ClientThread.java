@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class ClientThread extends Thread{
 
@@ -29,7 +30,30 @@ public class ClientThread extends Thread{
         try {
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             out = new PrintWriter(clientSocket.getOutputStream(), true);
+			Scanner sc = new Scanner(System.in);
 
+			if(this.username == null)
+			{
+				System.out.println("Username :");
+				this.setUsername(sc.nextLine());
+			}
+			
+			
+			if(this.password == null)
+			{
+				System.out.println("Nouveau password :");
+				this.setPassword(sc.nextLine());
+			}
+			else
+			{
+				System.out.println("Password :");
+				if (sc.nextLine() != this.password)
+				{
+					break;
+				}
+			}
+
+			
             out.println("Bienvenue sur le serveur de chat !");
 
             while (true) {
