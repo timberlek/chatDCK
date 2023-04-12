@@ -51,14 +51,16 @@ public class ClientThread extends Thread{
 				System.out.println("Nouveau password :");
 				this.setPassword(sc.nextLine());
 			}
-			else
+			
+
+			System.out.println("Password :");
+			if (sc.nextLine() != this.password)
 			{
-				System.out.println("Password :");
-				if (sc.nextLine() != this.password)
-				{
-					bool = false;
-				}
+				bool = false;
+				System.out.println("Connexion refusée.");
 			}
+
+			
 
             out.println("Bienvenue sur le serveur de chat !");
 
