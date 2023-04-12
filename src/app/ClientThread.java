@@ -31,6 +31,9 @@ public class ClientThread extends Thread{
     }
 
     public void run() {
+
+		boolean bool = true;
+
         try {
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             out = new PrintWriter(clientSocket.getOutputStream(), true);
@@ -53,13 +56,13 @@ public class ClientThread extends Thread{
 				System.out.println("Password :");
 				if (sc.nextLine() != this.password)
 				{
-					break;
+					bool = false;
 				}
 			}
 
             out.println("Bienvenue sur le serveur de chat !");
 
-            while (true) {
+            while (bool) {
                 String inputLine = in.readLine();
                 if (inputLine == null) {
                     break;
