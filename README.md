@@ -127,3 +127,31 @@ et on ajoute ce contenue dedans :
 *.zip
 *.tar.gz
 *.rar
+
+	
+Nous avons ensuite vue comment ce connecter à notre compte github.
+Il faut commencer par générer une clé ssh avec la commande :
+
+ssh-keygen
+	
+puis lire la clé avec :
+
+cat ~/.ssh/id_rsa.pub
+
+Ensuite on créer un répertoire en ligne sur github.
+Et l'on ajoute a notre repertoire local dequoi si connecter : 
+
+git remote add origin git@github.com:<votre_utilisateur>/tp1.git
+
+On peut ici regarder les différentes branche du projet :
+git branch
+
+Ajouter nos modicification sur une branche précise :
+git push -u origin master
+
+Récuperer le contenue du projet :
+git pull
+
+Et de quoi regarder les modifications et différent commits :
+git log
+git status
