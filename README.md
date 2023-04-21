@@ -1,4 +1,5 @@
-SAE 2.03 équipe 10
+# SAE 2.03 équipe 10
+
 Nous vérifions d'abord les paramètres de configuration actuelle de git sur notre machine avec la commande :
 
 $:> git config --list
