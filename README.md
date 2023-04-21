@@ -106,10 +106,9 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 
-  On créer ici le .gitignore :
+On créer ici le .gitignore :
 
 $:~/courseGIT/tp1> touch .gitignore
-  Puis sélectionnez et validez le fichier :
 
 $:~/courseGIT/tp1> git add .gitignore
 	
