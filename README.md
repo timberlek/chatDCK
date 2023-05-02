@@ -5,7 +5,7 @@ Dans cette branche se trouvent tout ce qui se rapportent au client.
 Dans le dossier "src" se trouvent les ".java" 
 Dans le dossier "out" se trouvent les ".class"
 
-il y a 3 façons de compiler avec le compile.sh / .bag / .list
+il y a 3 façons de compiler avec le compile.sh / .bat / .list
 
       -"javac @compile compile.list"
       -"./compile.sh"
