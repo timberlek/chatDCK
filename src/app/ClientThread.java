@@ -15,7 +15,7 @@ public class ClientThread extends Thread{
     private PrintWriter out;
     private Server server;
 
-    public ClientThread(Socket socket, Server server,String pseudo) 
+    public ClientThread(Socket socket, Server server,String pseudo)
     {
         this.clientSocket = socket;
         this.server = server;
@@ -30,8 +30,6 @@ public class ClientThread extends Thread{
 
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             out = new PrintWriter(clientSocket.getOutputStream(), true);
-			Scanner sc = new Scanner(System.in);
-			
 
             out.println("Bienvenue sur le serveur de chat !");
 

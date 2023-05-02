@@ -29,20 +29,18 @@ public class Server
 			BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
 
-			if(in.ready()) {
-				if(in.readLine() != "5f4ky478l1qs35d178ksd5") {
-					clientSocket.close();
-					in.close();
-					out.close();
-				}
+			//Flag : 5f4ky478l1qs35d178ksd5
+			if (!in.readLine().equals("5f4ky478l1qs35d178ksd5")) {
+				out.println("Flag non reconnue !");
+				System.out.println("Connexion fermee par " + clientSocket.getInetAddress().getHostAddress());
+				clientSocket.close();
+			} else {
+				out.println("Rentrez votre pseudo : ");
+				pseudo = in.readLine();
+
+				threads.add( new ClientThread(clientSocket, this, pseudo));
+				threads.getLast().start();
 			}
-
-			out.println("Rentrez votre pseudo : ");
-			pseudo = in.readLine();
-
-			threads.add( new ClientThread(clientSocket, this, pseudo));
-            threads.getLast().start();
-
 		}
 	}
 
