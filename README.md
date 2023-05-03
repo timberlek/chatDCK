@@ -1,6 +1,6 @@
-# PROJET_X
+# Chat DCK
 
-# PROJET_X
+# Docker
 
 Dans cette branche, on trouve tout se qui se rapporte au dockerfile.
 
